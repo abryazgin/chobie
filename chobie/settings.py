@@ -75,16 +75,15 @@ WSGI_APPLICATION = 'chobie.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chobie',
-        'USER': 'chobie',
-        'PASSWORD': 'H97fsTaf',
-        'HOST': '127.0.0.1'
-    }
-}
 
+DATABASES = {}
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+
+DEFAULT_DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://chobie:H97fsTaf@127.0.0.1:5432/chobie')
+DATABASES['default'] = dj_database_url.config(default=DEFAULT_DATABASE_URL)
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
