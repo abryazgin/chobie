@@ -20,9 +20,14 @@ App for voting
 9)  CREATE ROLE chobie PASSWORD 'H97fsTaf';
 10) GRANT ALL ON DATABASE chobie TO chobie;
 11) ALTER ROLE chobie WITH LOGIN;
-12) python manage.py migrate
-13) python manage.py createsuperuser
-14) python manage.py runserver
+12)  <close psql>
+13) python manage.py migrate
+14) python manage.py createsuperuser
+15) python manage.py runserver
  
   DONE!
+  
+16) wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+17) heroku login
+18) heroku git:remote -a chobie
 
