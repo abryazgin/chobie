@@ -1,33 +1,72 @@
 # chobie
 App for voting
 
-    INSTALL:
 
-0)  cd /source/directory/of/your/projects/
-1)  git clone git@github.com:bryazginnn/chobie.git
-2)  cd ./chobie/
-3)  virtualenv venv
-4)  source ./venv/bin/activate
-5)  pip install -r requirements.txt
-6)  <install PostgreSQL>
-     a) sudo apt-get install postgresql-9.4
-     b) useradd postgres
-     c) passwd postgres 
-7)  <open psql>
-     a) su postgres
-     b) psql
-8)  CREATE DATABASE chobie;
-9)  CREATE ROLE chobie PASSWORD 'H97fsTaf';
-10) GRANT ALL ON DATABASE chobie TO chobie;
-11) ALTER ROLE chobie WITH LOGIN;
-12)  <close psql>
-13) python manage.py migrate
-14) python manage.py createsuperuser
-15) python manage.py runserver
+INSTALL:
+--------
+
+
+download project:
+
+      cd /source/directory/of/your/projects/
+
+      git clone git@github.com:bryazginnn/chobie.git
+
+      cd ./chobie/
+
+init virtualenv:
+
+      virtualenv venv
+
+      source ./venv/bin/activate
+
+      pip install -r requirements.txt
+
+install PostgreSQL:
+
+       sudo apt-get install postgresql-9.4
+     
+       useradd postgres
+     
+       passwd postgres 
+     
+open psql:
+
+       su postgres
+     
+       psql
+
+execute in PostgreSQL:
+     
+      CREATE DATABASE chobie;
+
+      CREATE ROLE chobie PASSWORD 'H97fsTaf';
+
+      GRANT ALL ON DATABASE chobie TO chobie;
+
+      ALTER ROLE chobie WITH LOGIN;
+
+close psql:
+    
+      \q
+
+initialize django's project:
+
+      python manage.py migrate
+
+      python manage.py createsuperuser
+
+      python manage.py runserver
+
  
   DONE!
   
-16) wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-17) heroku login
-18) heroku git:remote -a chobie
+BIND WITH HEROKU:
+
+      wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+      heroku login
+
+      heroku git:remote -a chobie
+
 
