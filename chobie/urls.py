@@ -17,10 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin, auth
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import logout, login
 
 urlpatterns = [
     url(r'^polls/', include('polls.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/$', 'django.contrib.auth.views.login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout')
+    url(r'^admin/', admin.site.urls, name='admin'),
+    url(r'^login/$', login, name='login'),
+    url(r'^logout/$', logout, name='logout')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
