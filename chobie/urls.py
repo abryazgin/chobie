@@ -18,8 +18,10 @@ from django.contrib import admin, auth
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import logout, login
+from chobie import views
 
 urlpatterns = [
+    url(r'^main/$', views.index, name='index'),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^login/$', login, name='login'),
