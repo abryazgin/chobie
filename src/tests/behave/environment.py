@@ -1,4 +1,4 @@
-from tests.base import webdriver
+from tests.base import webdriver, client
 from tests.base.factory import user
 
 
@@ -7,6 +7,7 @@ def before_all(context):
     Action runs before all features in behave testing
     """
     start_browser_in_context(context, 'firefox')
+    start_client_in_context(context)
     create_test_user()
 
 
@@ -24,6 +25,10 @@ def start_browser_in_context(context, webdriver_name):
     print('Opening {} browser ...'.format(webdriver_name.title()))
     context.browser = webdriver.factory(webdriver_name)
     print('Browser {} opened!'.format(webdriver_name.title()))
+
+
+def start_client_in_context(context):
+    context.client = client.factory()
 
 
 def stop_browser_in_context(context, webdriver_name):

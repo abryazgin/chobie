@@ -1,28 +1,17 @@
 from behave import *
 
-from tests.base.webdriver import NoSuchElementException, goto, checkurl
+from tests.base.webdriver import NoSuchElementException, checkurl
 from tests.base.factory import user
 from tests.base.utils import randomizer
+from basic import is_error, is_success, goto
 
 
 def login(context, username, password):
-    goto(context.browser, '/login/')
+    goto(context, '/login/')
 
     context.browser.find_element_by_id("id_username").send_keys(username)
     context.browser.find_element_by_id("id_password").send_keys(password)
     context.browser.find_element_by_xpath('//input[@value="login"]').click()
-
-
-def is_error(context):
-    try:
-        if context.browser.find_element_by_name("error"):
-            return True
-    except NoSuchElementException:
-        return False
-
-
-def is_success(context):
-    return not is_error(context)
 
 
 @given(u'I am a some registered user')
@@ -59,11 +48,5 @@ def step_impl(context):
 @then(u"I don't login")
 def step_impl(context):
     is_error(context)
-
-
-@then(u"I have redirected to '{page}' page")
-def step_impl(context, page):
-    suburl = '/{page}/'.format(page=page)
-    checkurl(context.browser, suburl)
 
 

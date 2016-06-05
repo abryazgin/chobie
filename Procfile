@@ -1,1 +1,1 @@
-web: gunicorn chobie.wsgi --log-file -
+web: gunicorn --pythonpath src chobie.wsgi --log-file -

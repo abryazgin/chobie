@@ -18,12 +18,12 @@ from django.contrib import admin, auth
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import logout, login
-from chobie import views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    url(r'^main/$', views.index, name='index'),
-    url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^login/$', login, name='login'),
-    url(r'^logout/$', logout, name='logout')
+    url(r'^logout/$', logout, name='logout'),
+    url(r'^main/', include('base.urls'), name='main'),
+    url(r'^.*$', RedirectView.as_view(url='main/', permanent=False), name='main')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

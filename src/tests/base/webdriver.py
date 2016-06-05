@@ -17,7 +17,8 @@ def factory(webdriver_name):
     return browser.webdriver.WebDriver()
 
 
-def goto(webdriver, suburl):
+def openurl(webdriver, suburl):
+    print 'WD goto ', suburl
     webdriver.get('{domain}{suburl}'.format(domain=config.url, suburl=suburl))
 
 

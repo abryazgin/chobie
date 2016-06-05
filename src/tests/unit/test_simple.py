@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
 
     @staticmethod
     def test_import_models_from_polls():
-        polls = __import__('polls')
+        polls = __import__('base')
         assert polls.models.Role is not None
         assert polls.models.Scope is not None
         assert polls.models.UserScope is not None
