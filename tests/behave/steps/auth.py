@@ -1,6 +1,6 @@
 from behave import *
 
-from tests.base.webdriver import NoSuchElementException, goto
+from tests.base.webdriver import NoSuchElementException, goto, checkurl
 from tests.base.factory import user
 from tests.base.utils import randomizer
 
@@ -59,3 +59,11 @@ def step_impl(context):
 @then(u"I don't login")
 def step_impl(context):
     is_error(context)
+
+
+@then(u"I have redirected to '{page}' page")
+def step_impl(context, page):
+    suburl = '/{page}/'.format(page=page)
+    checkurl(context.browser, suburl)
+
+

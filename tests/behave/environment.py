@@ -4,13 +4,16 @@ from tests.base.factory import user
 
 def before_all(context):
     """
-    Action runs before all steps in behave testing
+    Action runs before all features in behave testing
     """
     start_browser_in_context(context, 'firefox')
     create_test_user()
 
 
 def after_all(context):
+    """
+    Action runs after all features in behave testing
+    """
     try:
         context.browser.quit()
     finally:

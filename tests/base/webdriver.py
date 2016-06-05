@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException # For using in other modules
 
-import os
 import config
 
 
@@ -20,3 +19,8 @@ def factory(webdriver_name):
 
 def goto(webdriver, suburl):
     webdriver.get('{domain}{suburl}'.format(domain=config.url, suburl=suburl))
+
+
+def checkurl(webdriver, suburl):
+    print 'CHECK URL', webdriver.current_url, suburl
+    assert webdriver.current_url.endswith(suburl)

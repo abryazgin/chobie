@@ -2,7 +2,6 @@ from django.test import Client
 import functools
 
 
-
 def __factory():
     """
     Client factory

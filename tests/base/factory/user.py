@@ -27,5 +27,5 @@ def create_fake_user():
 def remove_fake_user():
     try:
         remove(fake_username)
-    finally:
+    except:
         pass
