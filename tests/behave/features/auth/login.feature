@@ -1,4 +1,4 @@
-Feature: Check authorization
+Feature: Check login page
 
   Scenario: Have access for registered user
     Given I am a some registered user
