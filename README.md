@@ -5,6 +5,11 @@ App for voting
 INSTALL:
 --------
 
+install requirements programms
+      
+      sudo apt-get install python2.7 python-dev 
+      
+      sudo apt-get install git
 
 download project:
 
@@ -14,7 +19,17 @@ download project:
 
       cd ./chobie/
 
+install PostgreSQL:
+
+       sudo apt-get install postgresql-9.3 postgresql-server-dev-9.3
+     
+       sudo useradd postgres
+     
+       sudo passwd postgres 
+     
 init virtualenv:
+      
+      sudo apt-get install python-virtualenv
 
       virtualenv venv
 
@@ -22,14 +37,6 @@ init virtualenv:
 
       pip install -r requirements.txt
 
-install PostgreSQL:
-
-       sudo apt-get install postgresql-9.4
-     
-       useradd postgres
-     
-       passwd postgres 
-     
 open psql:
 
        su postgres
@@ -46,9 +53,11 @@ execute in PostgreSQL:
 
       ALTER ROLE chobie WITH LOGIN;
 
-close psql:
+close psql and exit from postgres user:
     
       \q
+      
+      exit
 
 initialize django's project:
 
