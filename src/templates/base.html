@@ -6,7 +6,8 @@
   </head>
 
   <body>
-  <div>
+  <div align="center">
+  <h1 textalign="center">chobie</h1>
       {{ user }}
       {% if user.is_anonymous %}
       <a href="{% url 'login' %}">login</a>
@@ -15,9 +16,10 @@
       {% endif %}
     </div>
 
-
+  <div align="center">
     {% block content %}
     {% endblock %}
+  </div>
 
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   </body>
