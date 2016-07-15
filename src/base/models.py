@@ -28,3 +28,11 @@ class UserScope(models.Model):
     scope = models.ForeignKey(Scope, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+
+@python_2_unicode_compatible
+class Events(models.Model):
+    name = models.CharField(max_length=100)
+    regdate = models.DateField()
+    
+    scope = models.ForeignKey(Scope, on_delete=models.CASCADE)
